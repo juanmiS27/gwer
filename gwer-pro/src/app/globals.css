@@ -4,8 +4,8 @@
 :root {
   --background-dark: #000;
   --text-light: #f0f0f0;
-  --primary-color: #8c00ff; /* Un morado vibrante para destacar */
-  --accent-color: #00ffc8;  /* Un verde/cian para acentos sutiles */
+  --primary-color: #c80b0b; /* Un morado vibrante para destacar */
+  --accent-color: #f8f5f8;  /* Un verde/cian para acentos sutiles */
   --gray-dark: #1a1a1a;
   --gray-medium: #333;
   --spacing-unit: 1rem; /* 16px por defecto */
@@ -185,7 +185,7 @@ button, .callToActionButton, .listenButton, .ticketButton {
   color: var(--background-dark);
   border-color: var(--accent-color);
   transform: translateY(-5px) scale(1.02); /* Efecto más pronunciado */
-  box-shadow: 0 8px 25px rgba(0, 255, 200, 0.7), 0 0 35px rgba(140, 0, 255, 0.8);
+  box-shadow: 0 8px 25px rgba(86, 1, 1, 0.7), 0 0 35px rgba(140, 0, 255, 0.8);
 }
 
 /* Asegurar el ajuste responsivo de los botones en móviles */
