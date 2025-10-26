@@ -33,6 +33,8 @@
   font-weight: 800;
   color: var(--text-light);
   text-transform: uppercase;
+  border-radius: 5px;
+  border: 2px solid rgba(140, 0, 255, 0.3);
   letter-spacing: 2px;
 }
 
@@ -290,6 +292,10 @@
   .heroTitle {
     font-size: 3rem;
     letter-spacing: 2px;
+  }
+
+  .heroLogo {
+    width: 75%;
   }
 
   .heroSubtitle {
@@ -711,4 +717,46 @@
 
 .contactCard[href*="instagram"]:hover p {
     color: var(--text-light); /* Mantener el texto claro en IG */
+}
+
+/* Estilos para el nuevo logo en el Hero */
+.heroLogo {
+  /* --- Esto es lo que lo hace responsive --- */
+  width: 100%; /* Ocupa el 100% del ancho (limitado por max-width) */
+  height: auto; /* Mantiene la proporción */
+  display: block; /* Necesario para centrar con márgenes */
+  /* ------------------------------------------ */
+
+  /* Límites de tamaño */
+  max-width: 600px; /* No crecerá más de 600px */
+  margin-left: auto;  /* Centra la imagen */
+  margin-right: auto; /* Centra la imagen */
+
+  /* Posicionamiento y efectos */
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.5rem; 
+
+  /* Sombra */
+  filter: drop-shadow(0 0 15px rgba(140, 0, 255, 0.8));
+
+  border-radius: 15px;
+  border: 2px solid rgba(140, 0, 255, 0.3);
+}
+
+.heroLogo {
+  /* Si el logo es un SVG, esto ayudará a su tamaño y color */
+  filter: drop-shadow(0 0 10px rgba(238, 236, 240, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.heroLogo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px #c80b0b);
+}
+
+/* Ajuste para el subtítulo, por si acaso */
+.heroSubtitle {
+  position: relative;
+  z-index: 2;
 }
