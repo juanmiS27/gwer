@@ -1,65 +1,172 @@
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image'; // Importar el componente Image de Next.js para optimización
+import styles from './page.module.css';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <nav className={styles.navbar}>
+          <Link href="/" className={styles.logoContainer}>
+            {/* Nuevo Logo como componente Image */}
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/gwer-pro-logo.png" // Asegúrate de tener este archivo en public/
+              alt="GWER PRO Logo"
+              width={150} // Ajusta el tamaño según tu diseño
+              height={50}
+              priority // Para cargar más rápido si es el logo principal
+              className={styles.logo}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </Link>
+          <ul className={styles.navLinks}>
+            <li>
+              <Link href="#about">Sobre Mí</Link> {/* Nuevo enlace */}
+            </li>
+            <li>
+              <Link href="#services">Servicios</Link>
+            </li>
+            <li>
+              <Link href="#why-us">¿Por Qué Elegirnos?</Link> {/* Nuevo enlace */}
+            </li>
+            <li>
+              <Link href="#contact">Contacto</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main className={styles.mainContent}>
+        <section className={styles.heroSection}>
+          <h1 className={styles.heroTitle}>
+            GWER PRO
+          </h1>
+          <p className={styles.heroSubtitle}>
+            Técnico de Sonido, Luces & Productor Musical
+          </p>
+          <div className={styles.heroButtonContainer}>
+            <Link href="#services" className={styles.callToActionButton}>
+              Explora Nuestros Servicios
+            </Link>
+          </div>
+        </section>
+
+        {/* --- NUEVA SECCIÓN: SOBRE MÍ --- */}
+        <section id="about" className={styles.section}>
+          <h2 className={styles.sectionTitle}>Sobre GWER PRO</h2>
+          <div className={styles.aboutContent}>
+            <p className={styles.aboutText}>
+              Soy GWER, un profesional apasionado por el sonido, la iluminación y la producción musical. 
+              Con años de experiencia en la escena urbana y electrónica, me dedico a transformar 
+              conceptos en experiencias auditivas y visuales inolvidables. Mi misión es elevar la 
+              calidad de cada proyecto, desde el estudio de grabación hasta el escenario más vibrante.
+            </p>
+            <p className={styles.aboutText}>
+              Ya sea que necesites un beat potente, una mezcla y masterización impecable para tu próximo lanzamiento, 
+              o la dirección técnica completa de sonido y luces para tu evento, GWER PRO es tu socio ideal. 
+              Trabajo con una visión clara: la excelencia y la innovación en cada detalle.
+            </p>
+          </div>
+        </section>
+        {/* --- FIN SECCIÓN SOBRE MÍ --- */}
+
+        <section id="services" className={styles.section}>
+          <h2 className={styles.sectionTitle}>Servicios Profesionales</h2>
+          <div className={styles.servicesGrid}>
+            <div className={styles.serviceCard}>
+              <h3>Técnico de Sonido</h3>
+              <p>
+                Asistencia técnica integral para directos, eventos y grabaciones. 
+                Desde la configuración del equipo hasta la mezcla FOH y monitores, 
+                garantizo un sonido claro y potente en cualquier entorno.
+              </p>
+            </div>
+            <div className={styles.serviceCard}>
+              <h3>Técnico de Luces</h3>
+              <p>
+                Diseño y operación de shows de luces que complementan la música y 
+                la atmósfera de tu evento. Utilizo las últimas tecnologías para 
+                crear ambientes dinámicos y memorables.
+              </p>
+            </div>
+            <div className={styles.serviceCard}>
+              <h3>Mastering & Producción</h3>
+              <p>
+                Servicios avanzados de mezcla y masterización para que tus tracks 
+                suenen profesionales en todas las plataformas. Además, creación de 
+                beats originales y asesoramiento en producción musical.
+              </p>
+            </div>
+            {/* Puedes añadir más servicios aquí */}
+          </div>
+        </section>
+
+        {/* --- NUEVA SECCIÓN: POR QUÉ ELEGIR GWER PRO --- */}
+        <section id="why-us" className={styles.section}>
+          <h2 className={styles.sectionTitle}>¿Por Qué Elegir GWER PRO?</h2>
+          <div className={styles.whyUsGrid}>
+            <div className={styles.reasonCard}>
+              <span className={styles.reasonIcon}>⚡</span> {/* Placeholder Icon */}
+              <h3>Experiencia Comprobada</h3>
+              <p>Años de trayectoria en la industria musical y de eventos, garantizando resultados.</p>
+            </div>
+            <div className={styles.reasonCard}>
+              <span className={styles.reasonIcon}>🎧</span> {/* Placeholder Icon */}
+              <h3>Calidad de Audio Superior</h3>
+              <p>Equipos de vanguardia y oído experto para una perfección sonora.</p>
+            </div>
+            <div className={styles.reasonCard}>
+              <span className={styles.reasonIcon}>💡</span> {/* Placeholder Icon */}
+              <h3>Visión Creativa</h3>
+              <p>Innovación en cada proyecto, desde el diseño de luces hasta la producción musical.</p>
+            </div>
+            <div className={styles.reasonCard}>
+              <span className={styles.reasonIcon}>🤝</span> {/* Placeholder Icon */}
+              <h3>Compromiso Total</h3>
+              <p>Dedicación y atención personalizada para cada cliente y proyecto.</p>
+            </div>
+          </div>
+        </section>
+        {/* --- FIN SECCIÓN POR QUÉ ELEGIRNOS --- */}
+
+        <section id="contact" className={styles.section}>
+          <h2 className={styles.sectionTitle}>Contacto</h2>
+          <p className={styles.contactText}>
+            ¿Listo para llevar tu proyecto al siguiente nivel? ¡Hablemos!
+            <br />
+            Puedes contactarme a través de los siguientes canales:
+          </p>
+          
+          {/* Contenedor de Métodos de Contacto */}
+          <div className={styles.contactMethods}>
+            
+            {/* Tarjeta de Email */}
+            <a href="mailto:germanwer4@gmail.com" className={styles.contactCard}>
+              <Image src="/icons/email.png" alt="Email" width={40} height={40} className={styles.contactIcon} />
+              <h3>Email</h3>
+              <p>germanwer4@gmail.com</p>
+            </a>
+
+            {/* Tarjeta de Teléfono */}
+            <a href="tel:+34 660 85 00 69" className={styles.contactCard}>
+              <Image src="/icons/phone.png" alt="Teléfono" width={40} height={40} className={styles.contactIcon} />
+              <h3>Teléfono</h3>
+              <p>+34 660 85 00 69</p> 
+            </a>
+
+            {/* Tarjeta de Instagram */}
+            <a href="https://www.instagram.com/germawerr/" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+              <Image src="/icons/instagram.png" alt="Instagram" width={45} height={45} className={styles.contactIcon} />
+              <h3>Instagram</h3>
+              <p>@germawerr</p>
+            </a>
+
+          </div>
+        </section>
       </main>
+
+      <footer className={styles.footer}>
+        <p>&copy; {new Date().getFullYear()} GWER PRO. Todos los derechos reservados.</p>
+      </footer>
     </div>
   );
 }
