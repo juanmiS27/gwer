@@ -1,24 +1,32 @@
 import Link from 'next/link';
-import styles from './page.module.css'; // Importa los estilos específicos de la página
+import Image from 'next/image'; // Importar el componente Image de Next.js para optimización
+import styles from './page.module.css';
 
 export default function HomePage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <nav className={styles.navbar}>
-          <Link href="/" className={styles.logo}>
-            GWER
+          <Link href="/" className={styles.logoContainer}>
+            {/* Nuevo Logo como componente Image */}
+            <Image
+              src="/gwer-pro-logo.png" // Asegúrate de tener este archivo en public/
+              alt="GWER PRO Logo"
+              width={150} // Ajusta el tamaño según tu diseño
+              height={50}
+              priority // Para cargar más rápido si es el logo principal
+              className={styles.logo}
+            />
           </Link>
           <ul className={styles.navLinks}>
-            {/* ENLACE "SERVICIOS" AÑADIDO */}
+            <li>
+              <Link href="#about">Sobre Mí</Link> {/* Nuevo enlace */}
+            </li>
             <li>
               <Link href="#services">Servicios</Link>
             </li>
             <li>
-              <Link href="#music">Música</Link>
-            </li>
-            <li>
-              <Link href="#events">Eventos</Link>
+              <Link href="#why-us">¿Por Qué Elegirnos?</Link> {/* Nuevo enlace */}
             </li>
             <li>
               <Link href="#contact">Contacto</Link>
@@ -30,122 +38,134 @@ export default function HomePage() {
       <main className={styles.mainContent}>
         <section className={styles.heroSection}>
           <h1 className={styles.heroTitle}>
-            GWER
+            GWER PRO
           </h1>
           <p className={styles.heroSubtitle}>
-            Beatmaker. DJ. Productor & Técnico Profesional.
+            Técnico de Sonido, Luces & Productor Musical
           </p>
-          {/* BOTONES DEL HERO ACTUALIZADOS */}
           <div className={styles.heroButtonContainer}>
             <Link href="#services" className={styles.callToActionButton}>
-              Contratar Servicios
-            </Link>
-            <Link href="#music" className={styles.callToActionButtonSecondary}>
-              Explora la Música
+              Explora Nuestros Servicios
             </Link>
           </div>
         </section>
 
-        {/* --- NUEVA SECCIÓN DE SERVICIOS --- */}
+        {/* --- NUEVA SECCIÓN: SOBRE MÍ --- */}
+        <section id="about" className={styles.section}>
+          <h2 className={styles.sectionTitle}>Sobre GWER PRO</h2>
+          <div className={styles.aboutContent}>
+            <p className={styles.aboutText}>
+              Soy GWER, un profesional apasionado por el sonido, la iluminación y la producción musical. 
+              Con años de experiencia en la escena urbana y electrónica, me dedico a transformar 
+              conceptos en experiencias auditivas y visuales inolvidables. Mi misión es elevar la 
+              calidad de cada proyecto, desde el estudio de grabación hasta el escenario más vibrante.
+            </p>
+            <p className={styles.aboutText}>
+              Ya sea que necesites un beat potente, una mezcla y masterización impecable para tu próximo lanzamiento, 
+              o la dirección técnica completa de sonido y luces para tu evento, GWER PRO es tu socio ideal. 
+              Trabajo con una visión clara: la excelencia y la innovación en cada detalle.
+            </p>
+          </div>
+        </section>
+        {/* --- FIN SECCIÓN SOBRE MÍ --- */}
+
         <section id="services" className={styles.section}>
           <h2 className={styles.sectionTitle}>Servicios Profesionales</h2>
           <div className={styles.servicesGrid}>
-            
             <div className={styles.serviceCard}>
               <h3>Técnico de Sonido</h3>
               <p>
-                Asistencia técnica para directos, mezcla FOH (Front of House), 
-                monitores y setup de eventos.
+                Asistencia técnica integral para directos, eventos y grabaciones. 
+                Desde la configuración del equipo hasta la mezcla FOH y monitores, 
+                garantizo un sonido claro y potente en cualquier entorno.
               </p>
             </div>
-            
             <div className={styles.serviceCard}>
               <h3>Técnico de Luces</h3>
               <p>
-                Diseño y operación de iluminación para directos, clubs y eventos, 
-                creando la atmósfera perfecta.
+                Diseño y operación de shows de luces que complementan la música y 
+                la atmósfera de tu evento. Utilizo las últimas tecnologías para 
+                crear ambientes dinámicos y memorables.
               </p>
             </div>
-            
             <div className={styles.serviceCard}>
               <h3>Mastering & Producción</h3>
               <p>
-                Lleva tus tracks al siguiente nivel. Servicios de mezcla 
-                y masterización profesional para plataformas digitales.
+                Servicios avanzados de mezcla y masterización para que tus tracks 
+                suenen profesionales en todas las plataformas. Además, creación de 
+                beats originales y asesoramiento en producción musical.
               </p>
             </div>
-
-          </div>
-        </section>
-        {/* --- FIN DE LA NUEVA SECCIÓN --- */}
-
-
-        <section id="music" className={styles.section}>
-          <h2 className={styles.sectionTitle}>Últimos Lanzamientos</h2>
-          <div className={styles.musicGrid}>
-            <div className={styles.trackCard}>
-              <img src="/track1.jpg" alt="Track 1" className={styles.trackCover} />
-              <h3>Ritmo Urbano</h3>
-              <p>feat. Artista X</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className={styles.listenButton}>
-                Escuchar ahora
-              </a>
-            </div>
-            <div className={styles.trackCard}>
-              <img src="/track2.jpg" alt="Track 2" className={styles.trackCover} />
-              <h3>Noches de Neón</h3>
-              <p>GWER Remix</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className={styles.listenButton}>
-                Escuchar ahora
-              </a>
-            </div>
+            {/* Puedes añadir más servicios aquí */}
           </div>
         </section>
 
-        <section id="events" className={styles.section}>
-          <h2 className={styles.sectionTitle}>Eventos Recientes</h2>
-          <div className={styles.eventList}>
-            <div className={styles.eventCard}>
-              <h3>GWER Live - The Club</h3>
-              <p>25 de Octubre, 22:00h</p>
-              <p>Ciudad, Ubicación</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className={styles.ticketButton}>
-                Ver Galería
-              </a>
+        {/* --- NUEVA SECCIÓN: POR QUÉ ELEGIR GWER PRO --- */}
+        <section id="why-us" className={styles.section}>
+          <h2 className={styles.sectionTitle}>¿Por Qué Elegir GWER PRO?</h2>
+          <div className={styles.whyUsGrid}>
+            <div className={styles.reasonCard}>
+              <span className={styles.reasonIcon}>⚡</span> {/* Placeholder Icon */}
+              <h3>Experiencia Comprobada</h3>
+              <p>Años de trayectoria en la industria musical y de eventos, garantizando resultados.</p>
             </div>
-            <div className={styles.eventCard}>
-              <h3>Festival Sonido Urbano</h3>
-              <p>12 de Noviembre, 20:00h</p>
-              <p>Ciudad, Recinto</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className={styles.ticketButton}>
-                Más info
-              </a>
+            <div className={styles.reasonCard}>
+              <span className={styles.reasonIcon}>🎧</span> {/* Placeholder Icon */}
+              <h3>Calidad de Audio Superior</h3>
+              <p>Equipos de vanguardia y oído experto para una perfección sonora.</p>
+            </div>
+            <div className={styles.reasonCard}>
+              <span className={styles.reasonIcon}>💡</span> {/* Placeholder Icon */}
+              <h3>Visión Creativa</h3>
+              <p>Innovación en cada proyecto, desde el diseño de luces hasta la producción musical.</p>
+            </div>
+            <div className={styles.reasonCard}>
+              <span className={styles.reasonIcon}>🤝</span> {/* Placeholder Icon */}
+              <h3>Compromiso Total</h3>
+              <p>Dedicación y atención personalizada para cada cliente y proyecto.</p>
             </div>
           </div>
         </section>
+        {/* --- FIN SECCIÓN POR QUÉ ELEGIRNOS --- */}
 
         <section id="contact" className={styles.section}>
           <h2 className={styles.sectionTitle}>Contacto</h2>
-          {/* TEXTO DE CONTACTO ACTUALIZADO */}
           <p className={styles.contactText}>
-            Para contratación de servicios, bookings o colaboraciones, contacta:
+            ¿Listo para llevar tu proyecto al siguiente nivel? ¡Hablemos!
+            <br />
+            Puedes contactarme a través de los siguientes canales:
           </p>
-          {/* EMAIL ACTUALIZADO */}
-          <a href="mailto:germanwer4@gmail.com" className={styles.contactEmail}>
-            germanwer4@gmail.com
-          </a>
-          <div className={styles.socialLinks}>
-            {/* INSTAGRAM ACTUALIZADO (y 'rel' corregido) */}
-            <a href="https://www.instagram.com/germawerr/" target="_blank" rel="noopener noreferrer">
-              Instagram
+          
+          {/* Contenedor de Métodos de Contacto */}
+          <div className={styles.contactMethods}>
+            
+            {/* Tarjeta de Email */}
+            <a href="mailto:germanwer4@gmail.com" className={styles.contactCard}>
+              <Image src="/icons/email.png" alt="Email" width={40} height={40} className={styles.contactIcon} />
+              <h3>Email</h3>
+              <p>germanwer4@gmail.com</p>
             </a>
-            {/* Puedes añadir más redes sociales aquí */}
+
+            {/* Tarjeta de Teléfono */}
+            <a href="tel:+34 660 85 00 69" className={styles.contactCard}>
+              <Image src="/icons/phone.png" alt="Teléfono" width={40} height={40} className={styles.contactIcon} />
+              <h3>Teléfono</h3>
+              <p>+34 660 85 00 69</p> 
+            </a>
+
+            {/* Tarjeta de Instagram */}
+            <a href="https://www.instagram.com/germawerr/" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+              <Image src="/icons/instagram.png" alt="Instagram" width={45} height={45} className={styles.contactIcon} />
+              <h3>Instagram</h3>
+              <p>@germawerr</p>
+            </a>
+
           </div>
         </section>
       </main>
 
       <footer className={styles.footer}>
-        <p>&copy; {new Date().getFullYear()} GWER. Todos los derechos reservados.</p>
+        <p>&copy; {new Date().getFullYear()} GWER PRO. Todos los derechos reservados.</p>
       </footer>
     </div>
   );

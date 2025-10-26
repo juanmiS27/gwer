@@ -90,18 +90,7 @@
   color: var(--primary-color);
 }
 
-/* Hero Section */
-.heroSection {
-  min-height: calc(100vh - 5rem); /* Ocupa la altura de la pantalla menos el header */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: url('/gwer-hero-bg.jpg') no-repeat center center/cover; /* Imagen de fondo */
-  position: relative;
-  overflow: hidden;
-}
+
 
 /* Efecto de capa oscura sobre la imagen del hero */
 .heroSection::before {
@@ -401,4 +390,325 @@
   .servicesGrid {
     grid-template-columns: 1fr; /* Una columna en móviles */
   }
+}
+/* --- EN page.module.css --- */
+
+/* ... (mantener los estilos existentes) ... */
+
+.section {
+  padding: 6rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  /* border-bottom: 1px dashed var(--gray-medium); // Lo quitaría si las secciones son más fluidas */
+  position: relative; /* Para posibles efectos de fondo o separadores */
+}
+
+.section:not(:last-child)::after {
+  content: '';
+  display: block;
+  width: 100px; /* Ancho del separador */
+  height: 2px;
+  background-color: var(--primary-color);
+  margin: 5rem auto 0 auto; /* Separación y centrado */
+  opacity: 0.3;
+}
+.section:last-child::after {
+  display: none; /* No hay separador después de la última sección */
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block; /* Para que el underline funcione */
+}
+
+/* Efecto de underline para los títulos */
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+
+/* Logo como componente Image */
+.logoContainer {
+  display: inline-flex; /* Para que Image ocupe el espacio */
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.logo {
+  /* Si el logo es un SVG, esto ayudará a su tamaño y color */
+  filter: drop-shadow(0 0 10px rgba(140, 0, 255, 0.5));
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgba(0, 255, 200, 0.7));
+}
+
+
+/* Hero Section */
+.heroSection {
+  min-height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('/gwer-hero-bg.jpg') no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
+  /* Fondo animado sutil o efecto de partículas */
+  animation: bg-pan 60s linear infinite alternate; /* Ejemplo de animación de fondo */
+}
+
+@keyframes bg-pan {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75); /* Capa un poco más oscura */
+  z-index: 1;
+}
+
+.heroTitle, .heroSubtitle, .heroButtonContainer {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 20px rgba(140, 0, 255, 0.9); /* Más énfasis en el brillo */
+}
+
+.heroTitle {
+  font-size: 7rem; /* Un poco más grande */
+  margin-bottom: 0.8rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 7px; /* Más espaciado */
+}
+
+.heroSubtitle {
+  font-size: 2rem; /* Un poco más grande */
+  color: var(--accent-color);
+  font-weight: 400; /* Un poco más de peso */
+  font-family: var(--font-body);
+  margin-bottom: calc(var(--spacing-unit) * 3); /* Más espacio */
+}
+
+
+/* --- Estilos para la sección "Sobre Mí" --- */
+.aboutContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.aboutText {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+
+/* --- Estilos para la sección "Por Qué Elegirnos" --- */
+.whyUsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.reasonCard {
+  background-color: var(--gray-dark);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--gray-medium); /* Borde sutil */
+}
+
+.reasonCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 40px rgba(140, 0, 255, 0.5);
+  border-color: var(--primary-color);
+}
+
+.reasonIcon {
+  font-size: 3rem; /* Tamaño de los iconos de placeholder */
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--accent-color); /* Color para los iconos */
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.6);
+}
+
+.reasonCard h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-light);
+}
+
+.reasonCard p {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 0;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 4.5rem;
+    letter-spacing: 4px;
+  }
+
+  .heroSubtitle {
+    font-size: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+  }
+
+  .servicesGrid, .whyUsGrid {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+    max-width: 400px; /* Limitar el ancho de las tarjetas */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .aboutContent, .contactForm {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .aboutText {
+    font-size: 1rem;
+  }
+
+  .contactEmail {
+    font-size: 1.2rem;
+  }
+
+  .socialLinks {
+    gap: 1.5rem;
+  }
+}
+
+/* Contenedor para los métodos de contacto */
+.contactMethods {
+  display: grid;
+  /* Se ajustará automáticamente a 1, 2 o 3 columnas */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto 0 auto; /* Espacio después del texto de contacto */
+}
+
+/* Tarjeta individual de contacto */
+.contactCard {
+  background-color: var(--gray-dark);
+  padding: 2.5rem 1.5rem; /* Más espacio vertical */
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid var(--gray-medium);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  color: var(--text-light); /* Asegura que el texto dentro del <a> sea claro */
+}
+
+.contactCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(140, 0, 255, 0.4);
+  border-color: var(--primary-color);
+}
+
+/* Icono dentro de la tarjeta */
+.contactIcon {
+  /* Filtro para iconos SVG de un solo color (ej. email, phone) */
+  width: 40px; 
+  height: 40px;
+  margin-bottom: 1.5rem;
+}
+
+/* Lógica especial para el icono de Instagram */
+.contactCard[href*="instagram"] .contactIcon {
+   /* Quitar el filtro para ver los colores del SVG de Instagram */
+   filter: none; 
+   width: 45px; /* Un poco más grande */
+   height: 45px;
+   transition: transform 0.3s ease;
+}
+
+.contactCard[href*="instagram"]:hover {
+    /* Gradiente de Instagram en el borde */
+    border-color: #d6249f;
+    box-shadow: 0 8px 30px rgba(214, 36, 159, 0.5);
+}
+
+.contactCard[href*="instagram"]:hover .contactIcon {
+    transform: scale(1.1); /* Efecto en el icono de IG */
+}
+
+
+.contactCard h3 {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* El h3 de Instagram puede usar su propio color */
+.contactCard[href*="instagram"]:hover h3 {
+    color: #d6249f;
+}
+
+.contactCard p {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-weight: 500;
+  word-break: break-word; /* Para que el email no se desborde */
+}
+
+.contactCard:hover p {
+    color: var(--accent-color);
+}
+
+.contactCard[href*="instagram"]:hover p {
+    color: var(--text-light); /* Mantener el texto claro en IG */
 }
