@@ -354,7 +354,7 @@
 
 .serviceCard:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 30px rgba(140, 0, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(157, 3, 3, 0.4);
 }
 
 .serviceCard h3 {
@@ -451,12 +451,12 @@
 }
 .logo {
   /* Si el logo es un SVG, esto ayudará a su tamaño y color */
-  filter: drop-shadow(0 0 10px rgba(140, 0, 255, 0.5));
+  filter: drop-shadow(0 0 10px rgba(238, 236, 240, 0.5));
   transition: transform 0.3s ease;
 }
 .logo:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 15px rgba(0, 255, 200, 0.7));
+  filter: drop-shadow(0 0 15px #c80b0b);
 }
 
 
@@ -549,7 +549,7 @@
 
 .reasonCard:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 40px rgba(140, 0, 255, 0.5);
+  box-shadow: 0 10px 40px  rgba(157, 3, 3, 0.4);
   border-color: var(--primary-color);
 }
 

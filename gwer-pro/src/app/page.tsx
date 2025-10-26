@@ -10,7 +10,7 @@ export default function HomePage() {
           <Link href="/" className={styles.logoContainer}>
             {/* Nuevo Logo como componente Image */}
             <Image
-              src="/gwer-pro-logo.png" // Asegúrate de tener este archivo en public/
+              src="/gwer-pro-logo2.jpeg" // Asegúrate de tener este archivo en public/
               alt="GWER PRO Logo"
               width={150} // Ajusta el tamaño según tu diseño
               height={50}
@@ -38,7 +38,14 @@ export default function HomePage() {
       <main className={styles.mainContent}>
         <section className={styles.heroSection}>
           <h1 className={styles.heroTitle}>
-            GWER PRO
+            <Image
+              src="/gwer-pro-logo2.jpeg" // Asegúrate de tener este archivo en public/
+              alt="GWER PRO Logo"
+              width={600} // Ajusta el tamaño según tu diseño
+              height={200}
+              priority // Para cargar más rápido si es el logo principal
+              className={styles.logo}
+            />
           </h1>
           <p className={styles.heroSubtitle}>
             Técnico de Sonido, Luces & Productor Musical
