@@ -44,7 +44,7 @@ export default function HomePage() {
               width={600} // Ajusta el tamaño según tu diseño
               height={200}
               priority // Para cargar más rápido si es el logo principal
-              className={styles.logo}
+              className={styles.heroLogo}
             />
           </h1>
           <p className={styles.heroSubtitle}>
@@ -103,6 +103,14 @@ export default function HomePage() {
                 beats originales y asesoramiento en producción musical.
               </p>
             </div>
+            <div className={styles.serviceCard}>
+              <h3>Grabación Multicanal en Directo</h3>
+              <p>
+                Captura profesional del audio de tu evento o concierto en pistas separadas. 
+                Ideal para crear maquetas en vivo, material para redes o una 
+                producción de alta calidad (post-producción y mezcla).
+              </p>
+            </div>
             {/* Puedes añadir más servicios aquí */}
           </div>
         </section>
@@ -131,6 +139,16 @@ export default function HomePage() {
               <h3>Compromiso Total</h3>
               <p>Dedicación y atención personalizada para cada cliente y proyecto.</p>
             </div>
+             <div className={styles.reasonCard}>
+            <span className={styles.reasonIcon}>🎛️</span> {/* Placeholder Icon */}
+            <h3>Solución Integral</h3>
+            <p>Un solo profesional para sonido, luces y producción. Coherencia total para tu evento o proyecto.</p>
+          </div>
+          <div className={styles.reasonCard}>
+            <span className={styles.reasonIcon}>🛡️</span> {/* Placeholder Icon */}
+            <h3>Fiabilidad y Adaptabilidad</h3>
+            <p>Resolución de problemas en tiempo real y cumplimiento estricto de los plazos de entrega.</p>
+          </div>
           </div>
         </section>
         {/* --- FIN SECCIÓN POR QUÉ ELEGIRNOS --- */}
