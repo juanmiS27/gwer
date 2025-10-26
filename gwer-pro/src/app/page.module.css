@@ -328,3 +328,77 @@
     gap: 1rem;
   }
 }
+
+/* --- AÑADIR AL FINAL DE page.module.css --- */
+
+/* Contenedor para los botones del Hero */
+.heroButtonContainer {
+  display: flex;
+  flex-wrap: wrap; /* Para que se apilen en móviles si no caben */
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem; /* Espacio entre botones */
+  position: relative;
+  z-index: 2;
+}
+
+
+/* --- Nueva Sección de Servicios --- */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.serviceCard {
+  background-color: var(--gray-dark);
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  text-align: left; /* Mejor para párrafos de texto */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Acento de color */
+  border-left: 4px solid var(--primary-color);
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(140, 0, 255, 0.4);
+}
+
+.serviceCard h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.serviceCard p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  /* Apila los botones del hero en móviles */
+  .heroButtonContainer {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  /* Hace que los botones ocupen más ancho en móvil */
+  .callToActionButton,
+  .callToActionButtonSecondary {
+     width: 90%;
+     text-align: center;
+     margin-left: 0;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+}
