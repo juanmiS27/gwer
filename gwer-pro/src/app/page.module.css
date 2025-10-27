@@ -92,20 +92,6 @@
   color: var(--primary-color);
 }
 
-
-
-/* Efecto de capa oscura sobre la imagen del hero */
-.heroSection::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Capa oscura */
-  z-index: 1;
-}
-
 .heroTitle, .heroSubtitle, .callToActionButton {
   position: relative;
   z-index: 2;
@@ -468,34 +454,19 @@
 
 /* Hero Section */
 .heroSection {
-  min-height: calc(100vh - 5rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: url('/gwer-hero-bg.jpg') no-repeat center center/cover;
-  position: relative;
-  overflow: hidden;
-  /* Fondo animado sutil o efecto de partículas */
-  animation: bg-pan 60s linear infinite alternate; /* Ejemplo de animación de fondo */
+ min-height: calc(100vh - 5rem);
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ position: relative;
+ overflow: hidden;
 }
 
 @keyframes bg-pan {
   0% { background-position: 0% 0%; }
   100% { background-position: 100% 100%; }
-}
-
-
-.heroSection::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75); /* Capa un poco más oscura */
-  z-index: 1;
 }
 
 .heroTitle, .heroSubtitle, .heroButtonContainer {
