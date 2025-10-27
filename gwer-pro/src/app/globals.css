@@ -26,7 +26,6 @@ html, body {
   height: 100%;
   font-family: var(--font-body);
   color: var(--text-light);
-  background-color: var(--background-dark);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth; /* Para el scroll suave a secciones */
@@ -192,5 +191,54 @@ button, .callToActionButton, .listenButton, .ticketButton {
 @media (max-width: 480px) {
   .callToActionButton {
     margin-top: calc(var(--spacing-unit) * 1.5);
+  }
+}
+
+/* --- AÑADIR AL FINAL DE globals.css --- */
+
+/* Asegura que el body tenga el color de fondo por si el video falla */
+body {
+  background-color: var(--background-dark);
+}
+
+/* Contenedor principal del video */
+.background-video-container {
+  position: fixed; /* Fijo en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw; /* 100% del ancho de la ventana */
+  height: 100vh; /* 100% del alto de la ventana */
+  z-index: -10; /* Detrás de todo el contenido */
+  overflow: hidden;
+}
+
+/* El elemento <video> */
+.background-video {
+  width: 100%;
+  height: 100%;
+  /* Esto es clave:
+     - 'object-fit: cover' hace que el video cubra todo el espacio
+       sin deformarse (similar a 'background-size: cover' para imágenes) */
+  object-fit: cover;
+}
+
+/* Capa oscura (Overlay) */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Ajusta este valor (0.7) para hacerlo más claro u oscuro */
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -9;
+}
+
+/* --- (OPCIONAL PERO RECOMENDADO) Desactivar en móviles --- */
+/* Los videos en bucle pueden gastar mucha batería y datos en móviles */
+@media (max-width: 768px) {
+  .background-video-container {
+    /* Simplemente oculta el video en pantallas pequeñas */
+    display: none;
   }
 }
