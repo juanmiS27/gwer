@@ -233,12 +233,3 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: -9;
 }
-
-/* --- (OPCIONAL PERO RECOMENDADO) Desactivar en móviles --- */
-/* Los videos en bucle pueden gastar mucha batería y datos en móviles */
-@media (max-width: 768px) {
-  .background-video-container {
-    /* Simplemente oculta el video en pantallas pequeñas */
-    display: none;
-  }
-}
