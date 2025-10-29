@@ -33,7 +33,7 @@ export default function Header() {
         <ul className={styles.navLinks}>
           <li><Link href="#about">Sobre Mí</Link></li>
           <li><Link href="#services">Servicios</Link></li>
-          <li><Link href="#why-us">¿Por Qué Elegirnos?</Link></li>
+          <li><Link href="#why-us">Ventajas</Link></li>
           <li><Link href="#contact">Contacto</Link></li>
         </ul>
 
@@ -53,7 +53,7 @@ export default function Header() {
         <ul className={styles.mobileNavLinks}>
           <li onClick={toggleMenu}><Link href="#about">Sobre Mí</Link></li>
           <li onClick={toggleMenu}><Link href="#services">Servicios</Link></li>
-          <li onClick={toggleMenu}><Link href="#why-us">¿Por Qué Elegirnos?</Link></li>
+          <li onClick={toggleMenu}><Link href="#why-us">Ventajas</Link></li>
           <li onClick={toggleMenu}><Link href="#contact">Contacto</Link></li>
         </ul>
       </div>

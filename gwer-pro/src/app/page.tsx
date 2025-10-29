@@ -89,7 +89,7 @@ export default function HomePage() {
 
         {/* --- NUEVA SECCIÓN: POR QUÉ ELEGIR GWER PRO --- */}
         <section id="why-us" className={styles.section}>
-          <h2 className={styles.sectionTitle}>¿Por Qué Elegir GWER PRO?</h2>
+          <h2 className={styles.sectionTitle}>Ventajas de GWER PRO</h2>
           <div className={styles.whyUsGrid}>
             <div className={styles.reasonCard}>
               <span className={styles.reasonIcon}>⚡</span> {/* Placeholder Icon */}
