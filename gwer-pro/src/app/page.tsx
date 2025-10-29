@@ -1,40 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image'; // Importar el componente Image de Next.js para optimización
 import styles from './page.module.css';
+import Header from './components/header';
 
 export default function HomePage() {
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <nav className={styles.navbar}>
-          <Link href="/" className={styles.logoContainer}>
-            {/* Nuevo Logo como componente Image */}
-            <Image
-              src="/gwer-pro-logo2.jpeg" // Asegúrate de tener este archivo en public/
-              alt="GWER PRO Logo"
-              width={150} // Ajusta el tamaño según tu diseño
-              height={50}
-              priority // Para cargar más rápido si es el logo principal
-              className={styles.logo}
-            />
-          </Link>
-          <ul className={styles.navLinks}>
-            <li>
-              <Link href="#about">Sobre Mí</Link> {/* Nuevo enlace */}
-            </li>
-            <li>
-              <Link href="#services">Servicios</Link>
-            </li>
-            <li>
-              <Link href="#why-us">¿Por Qué Elegirnos?</Link> {/* Nuevo enlace */}
-            </li>
-            <li>
-              <Link href="#contact">Contacto</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
+      <Header />
       <main className={styles.mainContent}>
         <section className={styles.heroSection}>
           <h1 className={styles.heroTitle}>
