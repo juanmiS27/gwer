@@ -23,7 +23,7 @@ export default function RootLayout({
         {/* --- VIDEO DE FONDO AÑADIDO --- */}
         <div className="background-video-container">
           <video
-            src="/gwer-pro-background.mp4" // Ruta al video en /public/
+            src="/gwer-pro-background2.mp4" // Ruta al video en /public/
             autoPlay
             loop
             muted
