@@ -799,21 +799,11 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   text-decoration: none;
+  text-align: center;
 }
 
 .mobileNavLinks a:hover {
   color: var(--primary-color);
-}
-
-.closeButton {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  background: transparent;
-  border: none;
-  color: var(--text-light);
-  font-size: 3rem;
-  cursor: pointer;
 }
 
 /* --- Media Query para activar el modo móvil --- */
@@ -836,4 +826,35 @@
      justify-content: space-between; 
      flex-direction: row; /* Previene que se apilen */
   }
+}
+/* --- AÑADE ESTO AL FINAL de page.module.css --- */
+
+/* Selector vacío que usaremos para la transformación */
+.headerOpen {
+  /* Este selector ahora existe cuando el menú está abierto */
+}
+
+/* Animar la hamburguesa a "X" cuando .headerOpen está presente */
+.headerOpen .hamburgerButton span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.headerOpen .hamburgerButton span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px); /* Desliza la línea del medio hacia afuera */
+}
+
+.headerOpen .hamburgerButton span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Ajusta el 'transform-origin' que ya tenías en .hamburgerButton span */
+.hamburgerButton span {
+  width: 2rem;
+  height: 0.25rem;
+  background: var(--text-light);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out; /* Cambiado de linear a ease */
+  position: relative;
+  transform-origin: 1px;
 }
